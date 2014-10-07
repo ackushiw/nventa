@@ -1,0 +1,23 @@
+
+    <material-toolbar id="bottom-toolbar" class="material-theme-indigo material-whiteframe-z1">
+        <div class="material-toolbar-tools">
+        <h3 class="text-muted">nventa</h3>
+            <material-tabs>
+                <material-tab class="active"><material-button ng-href="#">Home</material-button>
+                </material-tab>
+                <material-tab ><material-button ng-href="#/create">Create</material-button></material-tab>
+                <!-- //angularfire -->
+                <material-tab><material-button ng-href="#/chat">chat</material-button>
+                </material-tab>
+                <material-tab>
+                    <material-button ng-hide-auth="" href="#/login">log in</material-button>
+                    <material-button ng-show-auth="" href="#/account">account</material-button>
+                </material-tab>
+            </material-tabs>
+            <material-button class="material-button-fab pull-right">Add</material-button>
+            
+
+        </div>
+    </material-toolbar>
+
+
