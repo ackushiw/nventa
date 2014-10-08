@@ -18,14 +18,15 @@
                 </material-radio-group>
             </div>
 
-            <input type="text" class="form-control" placeholder="Your event's name" ng-model="event.title" required>           
-
-
-
+            <input type="text" class="form-control" placeholder="Your event's name" ng-model="event.title" required>
 
             <h2>Description</h2>
 
             <textarea type="text" class="form-control" placeholder="Optional..." ng-model="event.description"></textarea>
+            <h2># Tags</h2>
+            <h6>use spacebar to complete tag</h6>
+            <input type="text" ng-model="event.tags" class="form-control" placeholder="tags">
+            <h2>Colors</h2>
 
             <br>           
         </form>
@@ -38,21 +39,21 @@
         <material-toolbar id="event-add-ons">
 
             <div class="material-toolbar-tools" layout="horizontal" layout-fill>
-                <material-button ng-click="eventTab = 'default'"><i class="fa fa-info-circle fa-2x">Event info</i>
+                <material-button ng-click="eventTab = 'default'"><i class="fa fa-info-circle fa-2x"><span hide-sm>Event info</span></i>
                 </material-button>
 
-                <material-button ng-click="eventTab = 'times'"><i class="fa fa-clock-o fa-2x">Event Times</i>
+                <material-button ng-click="eventTab = 'times'"><i class="fa fa-clock-o fa-2x"><span hide-sm>Event Times</span></i>
                 </material-button>
 
-                <material-button ng-click="eventTab ='locations'"><i class="fa fa-map-marker fa-2x">Event Locations</i>
+                <material-button ng-click="eventTab ='locations'"><i class="fa fa-map-marker fa-2x"><span hide-sm>Event Locations</span></i>
                 </material-button>
 
-                <material-button ng-click="eventTab='users'"><i class="fa fa-users fa-2x">Event Users</i>
+                <material-button ng-click="eventTab='users'"><i class="fa fa-users fa-2x"><span hide-sm>Event Users</span></i>
                 </material-button>
 
-                <material-button ng-click="eventTab='money'"><i class="fa fa-dollar fa-2x">Money</i>
+                <material-button ng-click="eventTab='money'"><i class="fa fa-dollar fa-2x"><span hide-sm>Money</span></i>
                 </material-button>
-                <material-button ng-click="eventTab = 'tags'"><i class="fa fa-tags fa-2x"># tags</i>
+                <material-button ng-click="eventTab = 'tags'"><i class="fa fa-tags fa-2x"><span hide-sm>#tags</span></i>
                 </material-button>
                 <material-divider></material-divider>
             </div>
