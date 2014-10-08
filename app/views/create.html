@@ -16,6 +16,7 @@
 
                 <input type="text" class="form-control" placeholder="Your event's name" ng-model="event.title">
 
+<<<<<<< HEAD
             </material-item>
             <material-item>
                 <h2>Description</h2>
@@ -33,6 +34,27 @@
             	<material-button ng-click="eventTab='users'"><i class="fa fa-users fa-2x">Event Users</i></material-button>
             	<material-button ng-click="eventTab='money'"><i class="fa fa-dollar fa-2x">Money</i></material-button>
             	<span flex></span>
+=======
+            </material-item>
+            <material-item>
+                <h2>Description</h2>
+                <textarea type="text" class="form-control" placeholder="Optional..." ng-model="event.description"></textarea>
+                <br>
+            </material-item>
+        </material-list>
+        <material-divider></material-divider>
+        <material-button class="pull-right material-button-colored" ng-class="{'material-button-raised': event.title}" ng-click="createEvent(event.title, event.description, event.privacy)">Create</material-button>
+        <br>
+        <material-toolbar id="event-add-ons">
+            <div class="material-toolbar-tools" layout="horizontal" layout-fill>
+            <material-button><i class="fa fa-info-circle fa-2x">Event Details</i></material-button>
+            	<material-button><i class="fa fa-clock-o fa-2x">Event Times</i></material-button>
+            	<material-button><i class="fa fa-map-marker fa-2x">Event Locations</i></material-button>
+            	<material-button><i class="fa fa-users fa-2x">Event Users</i></material-button>
+            	<material-button><i class="fa fa-dollar fa-2x">Money</i></material-button>
+            	<material-button><i class="fa fa-tags fa-2x">#Tags</i></material-button>
+            	<span flex></span>
+>>>>>>> f994fba1f2632a0cbdb2cca2d78ff73cc8eb11df
 
             	<material-button class="pull-right"><i class="fa fa-chevron-up">Back to Top</i></material-button>
             	
