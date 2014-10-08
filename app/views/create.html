@@ -1,103 +1,89 @@
 <material-card id="create-event-top">
+    <material-content class="material-content-padding">
 
-	<material-content class="material-content-padding">
+        <form name="eventCreation" ng-submit="eventCreation.$valid && createEvent(event.title, event.description, event.privacy)">
+            <div layout="horizontal">
 
+                <h2>Title</h2>
+                <h1>{{eventId}}</h1>
+                <span flex></span>
 
-		<material-list>
+                <material-radio-group layout="horizontal" ng-model="event.privacy" class="pull-right" ng-pristine="test">
 
-			<material-item>
+                    <material-radio-button ng-init="event.privacy = null" value="false" ng-class="{'material-checked': event.privacy === null}"><b>Public</b>
+                    </material-radio-button>
 
-				<div layout="horizontal">
+                    <material-radio-button value="true"><b>Private</b>
+                    </material-radio-button>
+                </material-radio-group>
+            </div>
 
-					<h2>Title</h2>
-					<span flex></span>
-
-					<material-radio-group layout="horizontal" ng-model="event.privacy" class="pull-right" ng-pristine="test">
-
-						<material-radio-button ng-init="event.privacy = null" value="false" ng-class="{'material-checked': event.privacy === null}"><b>Public</b>
-						</material-radio-button>
-
-						<material-radio-button value="true"><b>Private</b>
-						</material-radio-button>
-					</material-radio-group>
-				</div>
+            <input type="text" class="form-control" placeholder="Your event's name" ng-model="event.title" required>           
 
 
-				<input type="text" class="form-control" placeholder="Your event's name" ng-model="event.title">           </material-item>
-
-			<material-item>
-
-				<h2>Description</h2>
-
-				<textarea type="text" class="form-control" placeholder="Optional..." ng-model="event.description"></textarea>
-
-				<br>           </material-item>
-		</material-list>
-
-		<material-divider></material-divider>
-
-		<material-button class="pull-right material-button-colored" ng-class="{'material-button-raised': event.title}" ng-click="createEvent(event.title, event.description, event.privacy)">Create</material-button>
-
-		<br>       
-		<material-toolbar id="event-add-ons">
-
-			<div class="material-toolbar-tools" layout="horizontal" layout-fill>
-
-				<material-button ng-click="eventTab = 'times'"><i class="fa fa-clock-o fa-2x">Event Times</i>
-				</material-button>
-
-				<material-button ng-click="eventTab ='locations'"><i class="fa fa-map-marker fa-2x">Event Locations</i>
-				</material-button>
-
-				<material-button ng-click="eventTab='users'"><i class="fa fa-users fa-2x">Event Users</i>
-				</material-button>
-
-				<material-button ng-click="eventTab='money'"><i class="fa fa-dollar fa-2x">Money</i>
-				</material-button>
-				<span flex></span>
-
-				</material-item>
-				<material-item>
-					<h2>Description</h2>
-					<textarea type="text" class="form-control" placeholder="Optional..." ng-model="event.description"></textarea>
-					<br>
-				</material-item>
-				</material-list>
-				<material-divider></material-divider>
-				<material-button class="pull-right material-button-colored" ng-class="{'material-button-raised': event.title}" ng-click="createEvent(event.title, event.description, event.privacy)">Create</material-button>
-				<br>
-				<material-toolbar id="event-add-ons">
-					<div class="material-toolbar-tools" layout="horizontal" layout-fill>
-						<material-button><i class="fa fa-info-circle fa-2x">Event Details</i>
-						</material-button>
-						<material-button><i class="fa fa-clock-o fa-2x">Event Times</i>
-						</material-button>
-						<material-button><i class="fa fa-map-marker fa-2x">Event Locations</i>
-						</material-button>
-						<material-button><i class="fa fa-users fa-2x">Event Users</i>
-						</material-button>
-						<material-button><i class="fa fa-dollar fa-2x">Money</i>
-						</material-button>
-						<material-button><i class="fa fa-tags fa-2x">#Tags</i>
-						</material-button>
-						<span flex></span>
-
-						<material-button class="pull-right"><i class="fa fa-chevron-up">Back to Top</i>
-						</material-button>
-					</div>
-				</material-toolbar>
 
 
-				<h1>{{eventId}}</h1>
+            <h2>Description</h2>
 
-				<material-content ng-switch="eventTab">
-					<section ng-switch-when="times"></section>
-					<section ng-switch-when="locations"></section>
-					<section ng-switch-when="users"></section>
-					<section ng-switch-when="money"></section>
-					<section ng-switch-when="tags"></section>
-					<section ng-switch-default></section>
-				</material-content>
+            <textarea type="text" class="form-control" placeholder="Optional..." ng-model="event.description"></textarea>
 
-	</material-content>
+            <br>           
+        </form>
+
+        <material-divider></material-divider>
+
+        <material-button class="pull-right material-button-colored" ng-class="{'material-button-raised': event.title}" ng-click="createEvent(event.title, event.description, event.privacy)">Create</material-button>
+
+        <br>       
+        <material-toolbar id="event-add-ons">
+
+            <div class="material-toolbar-tools" layout="horizontal" layout-fill>
+                <material-button ng-click="eventTab = 'default'"><i class="fa fa-info-circle fa-2x">Event info</i>
+                </material-button>
+
+                <material-button ng-click="eventTab = 'times'"><i class="fa fa-clock-o fa-2x">Event Times</i>
+                </material-button>
+
+                <material-button ng-click="eventTab ='locations'"><i class="fa fa-map-marker fa-2x">Event Locations</i>
+                </material-button>
+
+                <material-button ng-click="eventTab='users'"><i class="fa fa-users fa-2x">Event Users</i>
+                </material-button>
+
+                <material-button ng-click="eventTab='money'"><i class="fa fa-dollar fa-2x">Money</i>
+                </material-button>
+                <material-button ng-click="eventTab = 'tags'"><i class="fa fa-tags fa-2x"># tags</i>
+                </material-button>
+                <material-divider></material-divider>
+            </div>
+        </material-toolbar>
+        <div class="alert alert-info" role="alert" ng-show="eventId">This is a
+            <span ng-switch="event.privacy">
+                <span ng-switch-when="true"><strong>private</strong> event only people you specify</span>
+                <span ng-switch-default><strong>public</strong> event anyone</span>
+            </span>can see the details below</div>
+        <div layout="vertical" layout-fill>
+            <material-content ng-switch="eventTab">
+                <section ng-switch-when="times">
+                    <event-form-times></event-form-times>
+                </section>
+                <section ng-switch-when="locations">
+                    <div ng-include="'views/event-form-locations.html'" scope="" onload=""></div>
+                </section>
+                <section ng-switch-when="users">
+                    <div ng-include="'views/event-form-users.html'" scope="" onload=""></div>
+                </section>
+                <section ng-switch-when="money">
+                    <div ng-include="'views/event-form-money.html'" scope="" onload=""></div>
+                </section>
+                <section ng-switch-when="tags">
+                    <div ng-include="'views/event-form-tags.html'" scope="" onload=""></div>
+                </section>
+                <section ng-switch-default>
+                    <event-form-info></event-form-info>
+                </section>
+            </material-content>
+        </div>
+
+    </material-content>
 </material-card>

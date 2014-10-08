@@ -8,7 +8,7 @@
  * Controller of the nventaApp
  */
 angular.module('nventaApp')
-  .controller('GlobalCtrl', function($scope, $materialSidenav) {
+  .controller('GlobalCtrl', function($scope, $materialSidenav) {  	
     $scope.openLeftMenu = function() {
       $materialSidenav('left').toggle();
     };
