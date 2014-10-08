@@ -10,6 +10,6 @@ angular.module('nventaApp')
   .directive('eventFormTimes', function () {
     return {
       restrict: 'E',
-      templateUrl: 'views/event-form-times.html'
+      templateUrl: 'views/event-form/event-form-times.html'
     };
   });
