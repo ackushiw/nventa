@@ -1,17 +1,15 @@
-<div class="jumbotron">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-        <img src="images/yeoman.png" alt="I'm Yeoman">
-        <br>Always a pleasure scaffolding your apps.
-    </p>
-    <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a>
-    </p>
+<div id="map">
+    <map></map>
 </div>
-    <material-content layout="vertical" layout-align="space-between">
-      <material-card ng-repeat="event in eventsList | filter:eventSearch" block class="material-content-padding">
-      <h2>{{event.title}}</h2>
-      </material-card>
-    </material-content>
+<material-content class="material-content-padding">
+    <div class="containter-fluid" inline-block>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="event in eventsList | filter:eventSearch">
+            <material-card  block flex>
+                <h2>{{event.title}}</h2>
+            </material-card>
+        </div>
+    </div>
+</material-content>
 
 
 <div class="row marketing">

@@ -8,6 +8,13 @@
  *
  * Main module of the application.
  */
+function onGoogleReady() {
+  console.log('google maps loaded!');
+
+  angular.bootstrap(document.getElementById("map"), ['nventaApp']);
+}
+
+
 angular.module('nventaApp', [
     'ngAnimate',
     'ngCookies',
@@ -19,5 +26,9 @@ angular.module('nventaApp', [
     'firebase',
     'firebase.utils',
     'simpleLogin',
-    'ui.utils'
+    'ui.utils',
+    'ui.bootstrap',
+    'ui.select',
+    'ui.router',
+    'ui.map'
   ]);
