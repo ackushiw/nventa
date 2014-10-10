@@ -13,11 +13,11 @@ angular.module('nventaApp')
 
         var data = EventFactory.find(this.eventId);
         data.$loaded().then(function(fireData) {
-            console.log(fireData);
+            //console.log(fireData);
             fireData.$bindTo($scope, 'eventData');
         });
 
-        var eventInfo = EventFactory.findInfo(eventId);
+        var eventInfo = EventFactory.findInfo(this.eventId);
         eventInfo.$loaded().then(function(fireData) {
             fireData.$bindTo($scope, 'eventInfo');
         });
