@@ -2,6 +2,19 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+
+/*Brand Colors*/
+$color-default: #A23333;
+$color-secondary:   #8C8CB8;
+$neutral: #F5F5F5;
+$tools-color: #C0C0C0;
+
+.brand-default{
+  background-color: $color-default;
+}
+.brand-secondary{
+  background-color: $color-secondary;
+}
 #bottom-toolbar{
   position:fixed;
   bottom:0;
@@ -16,10 +29,24 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 .fixed{
   position: fixed;
 }
+/*Event Card Styling*/
+#event-card{
+  margin-bottom: 30px;
+  .toolbar{
+    display: inline-block;
+    min-height: 15px;
+    padding: 0;
+    background: #C0C0C0;
+    .material-toolbar-tools{
+      height: 30px;
+    }
+  }
 
+}
 /* Space out content a bit */
 body {
   padding-bottom: 64px !important;
+  background: WhiteSmoke;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */

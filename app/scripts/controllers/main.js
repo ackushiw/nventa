@@ -8,8 +8,6 @@
  * Controller of the nventaApp
  */
 angular.module('nventaApp')
-  .controller('MainCtrl', function ($scope, FBURL, $firebase) {
-    var fireRef = new Firebase(FBURL + 'events');
-    var sync = $firebase(fireRef);  
-    $scope.eventsList = sync.$asArray();
+  .controller('MainCtrl', function ($scope, EventFactory) {    
+    $scope.eventsList = EventFactory.all;
   });

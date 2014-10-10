@@ -11,8 +11,9 @@
 function onGoogleReady() {
   console.log('google maps loaded!');
 
-  angular.bootstrap(document.getElementById("map"), ['nventaApp']);
+  angular.bootstrap(document.getElementById('map'), ['nventaApp']);
 }
+//console.log(onGoogleReady());
 
 
 angular.module('nventaApp', [

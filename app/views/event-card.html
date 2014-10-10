@@ -1,72 +1,87 @@
-<div id="event-card" layout="vertical">
-    
-    <material-toolbar>
-        
-        <div class="material-toolbar-tools"> 
-        <div flex></div>      
-            <div class="pull-right actions" layout="horizontal">
-                
-                <button class="btn btn-sm">
-                     <i class="fa fa-share"></i>
-                    re-nvent</button>
-                
-                <button class="btn btn-sm">
-                     <i class="fa fa-star-o"></i>
-                    star</button>
-                
-                <button class="btn btn-sm">
-                     <i class="fa fa-close"></i>
-                    close</button>
-                </div>
-            </div>
-        </material-toolbar>
+<div id="event-card" layout="vertical" class="material-whiteframe-z1">
 
-    
-    <material-content class="material-whiteframe-z1">
-        <h3>{{eventCard.title}}</h3>
-        
-        <p>This is the event-card view. test. swipe left to hide, swipe right to star/save</p>
+    <div class="toolbar">
+
+        <div class="material-toolbar-tools">    
+            <div class="actions" layout="horizontal" flex>
+
+                <material-button class="">
+                    <i class="fa fa-retweet"></i>
+                    re-nvent
+                </material-button>
+                <material-button class="">
+                    <i class="fa fa-share-alt"></i>
+                    share
+                </material-button>
+
+                <material-button class="">
+                    <i class="fa fa-star-o"></i>
+                    star
+                </material-button>
+                <material-button class="">
+                    <i class="fa fa-eye-slash"></i>
+                    hide
+                </material-button>
+
+                <material-button class="" ng-click="removeEvent(key)">
+                    <i class="fa fa-close"></i>
+                    close
+                </material-button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="material-whiteframe-z2">
+        <material-content class=" material-content-padding">
+            <h2>{{eventCard.title}}</h2>
+            <h4>{{eventCard.$id}}</h4>
+
+            <p>This is the event-card view. test. swipe left to hide, swipe right to star/save</p>
+            <p>{{eventCard.description}}</p>
         </material-content>
-    
-    <material-tabs>
-        
-        <material-tab>
-            
-            <material-tab-label>
-                 <i class="fa fa-info-o"></i>
-                info      </material-tab-label>
+
+
+        <material-tabs class="material-whiteframe-z1">
+
+            <material-tab ng-click="infoTab(eventCard.$id)">
+
+                <material-tab-label>
+                    <i class="fa fa-info-circle"></i>
+                    info      </material-tab-label>
             </material-tab>
-        
-        <material-tab>
-            
-            <material-tab-label>
-                <i class="fa fa-clock-o"></i>
-                times
-            </material-tab-label>
+
+            <material-tab>
+
+                <material-tab-label>
+                    <i class="fa fa-clock-o"></i>
+                    times
+                </material-tab-label>
             </material-tab>
-        <material-tab>
-            <material-tab-label>
-                <i class="fa fa-map-marker"></i>
-                locations
-            </material-tab-label>
-        </material-tab>
-        <material-tab>
-            <material-tab-label>
-                <i class="fa fa-users"></i>
-                users
-            </material-tab-label>
-        </material-tab>
-        <material-tab>
-            <material-tab-label>
-                <i class="fa fa-dollar"></i>
-                money
-            </material-tab-label>
-        </material-tab>
-        <material-tab>
-            <material-tab-label>
-                <i class="fa fa-tags"></i>
-                #tags
-            </material-tab-label>
-        </material-tab>
+            <material-tab>
+                <material-tab-label>
+                    <i class="fa fa-map-marker"></i>
+                    locations
+                </material-tab-label>
+            </material-tab>
+            <material-tab>
+                <material-tab-label>
+                    <i class="fa fa-users"></i>
+                    users
+                </material-tab-label>
+            </material-tab>
+            <material-tab>
+                <material-tab-label>
+                    <i class="fa fa-dollar"></i>
+                    money
+                </material-tab-label>
+            </material-tab>
+            <material-tab ng-click="infoTab(eventCard.$id)">
+                <material-tab-label>
+                    <i class="fa fa-tags"></i>
+                    #tags
+                </material-tab-label>
+            </material-tab>
         </material-tabs>
+    </div>
 </div>

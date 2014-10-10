@@ -13,5 +13,10 @@ angular.module('nventaApp')
       templateUrl: 'views/event-card.html',
       controller: 'EventCardCtrl',
       controllerAs: 'eventCardCtrl'
+      //link: function (scope, element, attrs) {
+      	//attrs.$observe('eventIndex', function(id){
+      		//scope.$apply('findKey(id)');
+      	//});
+      //}
     };
   });
