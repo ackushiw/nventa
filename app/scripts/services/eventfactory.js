@@ -32,8 +32,7 @@ angular.module('nventaApp')
         //console.log(eventId);
         //console.log(FBURL + 'eventInfo/' + eventId);
         var eventRef = new Firebase(FBURL + 'eventInfo/' + eventId);
-        var eventSync = $firebase(eventRef).$asObject();
-        console.log(eventSync);
+        var eventSync = $firebase(eventRef).$asObject();               
         return eventSync;
       },
       filter: function(userId) {
