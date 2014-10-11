@@ -24,6 +24,7 @@ angular.module('nventaApp', [
     'ngSanitize',
     'ngTouch',
     'ngMaterial',
+    'ngAutocomplete', //for Google Places
     'firebase',
     'firebase.utils',
     'simpleLogin',

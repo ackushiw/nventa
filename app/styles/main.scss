@@ -1,19 +1,25 @@
-$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+$icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
+@import url("http://fonts.googleapis.com/css?family=Roboto+Condensed");
+ $Roboto:'Roboto Condensed', sans-serif;
 
 /*Brand Colors*/
 $color-default: #A23333;
 $color-secondary:   #8C8CB8;
 $neutral: #F5F5F5;
 $tools-color: #C0C0C0;
+$white: #FFF;
 
 .brand-default{
   background-color: $color-default;
 }
 .brand-secondary{
   background-color: $color-secondary;
+}
+.white{
+  background-color: $white;
 }
 #bottom-toolbar{
   position:fixed;
@@ -47,6 +53,7 @@ $tools-color: #C0C0C0;
 body {
   padding-bottom: 64px !important;
   background: WhiteSmoke;
+  font-family: $Roboto;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */

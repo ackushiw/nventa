@@ -9,6 +9,7 @@
  */
 angular.module('nventaApp')
     .controller('EventCardCtrl', function($scope, EventFactory) {
+        
         this.eventId = $scope.eventCard.$id;
 
         var data = EventFactory.find(this.eventId);
@@ -20,7 +21,17 @@ angular.module('nventaApp')
         var eventInfo = EventFactory.findInfo(this.eventId);
         eventInfo.$loaded().then(function(fireData) {
             fireData.$bindTo($scope, 'eventInfo');
+        }); 
+
+        var eventTimes = EventFactory.findTimes(this.eventId);
+        eventTimes.$loaded().then(function(fireData) {
+            fireData.$bindTo($scope, 'eventTimes');
         });
+
+        var eventLocals = EventFactory.findLocals(this.eventId);
+        eventLocals.$loaded().then(function(fireData) {
+            fireData.$bindTo($scope, 'eventLocals');
+        });        
 
 
         $scope.removeEvent = function(id) {

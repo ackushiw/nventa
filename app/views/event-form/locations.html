@@ -1,1 +1,11 @@
-<p>This is the event-form-location view.</p>
+<div ng-controller="EventFormLocationsCtrl as locationCtrl"><p>This is the event-form-location view.</p>
+
+<input class="form-control" name="address" type="text" ng-autocomplete options="autoOptions" details="addressDetails" ng-model="address" ng-blur="addEventLocals(eventId, addressDetails)" placeholder="Meet Address" required>
+
+                
+                
+<button class="btn btn-primary btn-block" ng-click="addEventLocals(eventId, addressDetails)">Add Location</button>
+</div>
+<div id="map">
+    <map></map>
+</div></div>

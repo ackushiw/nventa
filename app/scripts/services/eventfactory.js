@@ -35,6 +35,20 @@ angular.module('nventaApp')
         var eventSync = $firebase(eventRef).$asObject();               
         return eventSync;
       },
+      findTimes: function(eventId) {
+        //console.log(eventId);
+        //console.log(FBURL + 'eventInfo/' + eventId);
+        var eventRef = new Firebase(FBURL + 'eventTimes/' + eventId);
+        var eventSync = $firebase(eventRef).$asObject();               
+        return eventSync;
+      },
+      findLocals: function(eventId) {
+        //console.log(eventId);
+        //console.log(FBURL + 'eventInfo/' + eventId);
+        var eventRef = new Firebase(FBURL + 'eventLocations/' + eventId);
+        var eventSync = $firebase(eventRef).$asObject();               
+        return eventSync;
+      },
       filter: function(userId) {
         events.$loaded().then(function(data) {
           var filteredEvents = [];

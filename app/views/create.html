@@ -1,4 +1,4 @@
-<material-card id="create-event-top">
+<div class="container-fluid" layout-fill><material-card id="create-event-top" class="col-md-6 col-md-offset-3 white">
     <material-content class="material-content-padding">
 
         <form name="eventCreation" ng-submit="eventCreation.$valid && createEvent(event.title, event.description, event.privacy)">
@@ -69,16 +69,16 @@
                     <event-form-times></event-form-times>
                 </section>
                 <section ng-switch-when="locations">
-                    <div ng-include="'views/event-form-locations.html'" scope="" onload=""></div>
+                    <div ng-include="'views/event-form/locations.html'" scope="" onload=""></div>
                 </section>
                 <section ng-switch-when="users">
-                    <div ng-include="'views/event-form-users.html'" scope="" onload=""></div>
+                    <div ng-include="'views/event-form/users.html'" scope="" onload=""></div>
                 </section>
                 <section ng-switch-when="money">
-                    <div ng-include="'views/event-form-money.html'" scope="" onload=""></div>
+                    <div ng-include="'views/event-form/money.html'" scope="" onload=""></div>
                 </section>
                 <section ng-switch-when="tags">
-                    <div ng-include="'views/event-form-tags.html'" scope="" onload=""></div>
+                    <div ng-include="'views/event-form/tags.html'" scope="" onload=""></div>
                 </section>
                 <section ng-switch-default>
                     <event-form-info></event-form-info>
@@ -88,3 +88,5 @@
 
     </material-content>
 </material-card>
+
+</div>

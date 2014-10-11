@@ -1,6 +1,6 @@
 <div id="event-card" layout="vertical" class="material-whiteframe-z1">
 
-    <div class="toolbar">
+    <div class="toolbar" ng-init="callCardCtrl(eventId)">
 
         <div class="material-toolbar-tools">    
             <div class="actions" layout="horizontal" flex>
@@ -42,6 +42,16 @@
             <h2 ng-show="eventInfo.notes">Notes</h2>
             <p>{{eventInfo.notes}}</p>
             <textarea ng-model="eventInfo.notes" class="form-control"></textarea>
+            <div ng-show="eventTimes.startTime">
+                <h2>Times</h2>
+                <p>Start: {{eventTimes.startTime | date:'EEEE, MMM d, h:mm a y' }}</p>
+                <p>End: {{eventTimes.end | date:'EEEE, MMM d, h:mm a y' }}</p>
+            </div>
+            <div ng-if="eventLocals">
+                <h2>Locations</h2>
+                <p>{{eventLocals.formatted_address}}</p>
+            </div>
+
         </material-content>
 
 
