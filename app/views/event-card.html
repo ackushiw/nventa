@@ -47,7 +47,7 @@
                 <p>Start: {{eventTimes.startTime | date:'EEEE, MMM d, h:mm a y' }}</p>
                 <p>End: {{eventTimes.end | date:'EEEE, MMM d, h:mm a y' }}</p>
             </div>
-            <div ng-if="eventLocals">
+            <div ng-if="eventLocals.formatted_address">
                 <h2>Locations</h2>
                 <p>{{eventLocals.formatted_address}}</p>
             </div>
