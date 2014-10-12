@@ -22,6 +22,8 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
+
+
 </head>
 
 <body ng-app="nventaApp">
@@ -33,9 +35,9 @@
 
     <div layout="vertical" layout-fill ng-controller="GlobalCtrl" class="fixed">
 
-        <material-toolbar scroll-shrink class="material-whiteframe-z1 brand-default">
+        <material-toolbar scroll-shrink class="material-whiteframe-z1 brand-default top-toolbar">
             <div class="material-toolbar-tools">
-                <span ng-click="openLeftMenu()">Nventa</span>
+                <span ng-click="openLeftMenu()" class="nav-brand">Nventa</span>
                 <!-- fill up the space between left and right area -->
                 <div class="input-group" flex="20">
                     <span class="input-group-addon"><i class="fa fa-search"></i>
@@ -49,8 +51,29 @@
                 </material-button>
             </div>
         </material-toolbar>
+        <div style="position: fixed;" class="desktop-nav hidden-sm hidden-xs" layout-fill>
+            <div layout="vertical">
+              <div class="nav-brand brand-default-text"><a ng-href="#"><h3>Nventa</h3></a></div>
+              <div class="side-nav">
+                <ul class="nav">
+                  <li><a ng-href="#">home</a></li>
+                  <li><a ng-href="#/create">create</a></li>
+                  <li><a ng-href="#/chat">chat</a></li>
+                  <li><a href="">favorite</a></li>
+                  <li><a href="">history</a></li>
+                  <li><a ng-href="#/login">login</a></li>
+                </ul>
+              </div>
+              <span></span>
+              <div class="nav-bottom">
+                <material-button ng-href="#/create" class="material-button-fab brand-default" ><div style="height: 100%; padding: 12px"><i class="fa fa-plus fa-2x"></i></div></material-button>
+              </div>
+            </div>
 
-        <material-content>
+
+        </div>
+
+        <material-content class="app-view">
             <div layout="horizontal">
                 <material-content flex>
                     <div ng-view=""></div>
@@ -62,7 +85,7 @@
         </material-content>
 
     </div>
-    <nav-bottom layout="horizontal" layout-fill class="material-whiteframe-z3"></nav-bottom>
+    <nav-bottom layout="horizontal" layout-fill></nav-bottom>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -73,7 +96,7 @@
             (i[r].q = i[r].q || []).push(arguments)
         }, i[r].l = 1 * new Date();
         a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
+            m = s.getElementsByTagName(o)[0];
         a.async = 1;
         a.src = g;
         m.parentNode.insertBefore(a, m)
@@ -159,6 +182,7 @@
     <script src="scripts/controllers/event-card.js"></script>
     <script src="scripts/directives/map.js"></script>
     <script src="scripts/services/eventfactory.js"></script>
+    <script src="scripts/services/datasource.js"></script>
     <!-- endbuild -->
 </body>
 

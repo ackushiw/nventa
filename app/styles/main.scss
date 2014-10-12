@@ -21,6 +21,9 @@ $white: #FFF;
 .white{
   background-color: $white;
 }
+.brand-default-text{
+  color: $color-default;
+}
 #bottom-toolbar{
   position:fixed;
   bottom:0;
@@ -47,7 +50,15 @@ $white: #FFF;
       height: 30px;
     }
   }
+  .card-body{
+    background-color: $white;
+  }
 
+}
+.top-toolbar{
+   .nav-brand{
+    width: 75px;
+  }
 }
 /* Space out content a bit */
 body {
@@ -110,9 +121,26 @@ body {
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
+  body {
+    padding-bottom: 0 !important;
+  }  
+  .desktop-nav{
+    position: fixed;
+    margin-top: -64px;
+    .nav-brand{
+      height: 64px;
+      padding: 10px;
+    }
+    .nav-bottom{
+      position: absolute;
+      bottom: 30px;
+      left: 75px - 28px;
+    }
   }
+  .app-view{
+    margin-left: 75px;
+  }
+ 
 
   /* Remove the padding we set earlier */
   .header,
