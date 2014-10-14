@@ -10,7 +10,7 @@
 angular.module('nventaApp')
     .factory('datasource', [
         '$log', '$timeout',
-        function(console, $timeout) {
+        function(console, $timeout, EventFactory) {
             var get;
             get = function(index, count, success) {
                 return $timeout(function() {
@@ -18,7 +18,7 @@ angular.module('nventaApp')
                     result = [];
 
                     for (i = _i = index, _ref = index + count - 1; index <= _ref ? _i <= _ref : _i >= _ref; i = index <= _ref ? ++_i : --_i) {
-                        result.push("item #" + i);
+                        result.push(EventFactory.find(i));
                     }
                     return success(result);
                 }, 100);
