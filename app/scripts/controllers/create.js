@@ -8,10 +8,12 @@
  * Controller of the nventaApp
  */
 angular.module('nventaApp')
-  .controller('CreateCtrl', ['$scope', 'FBURL', '$firebase', '$location', '$anchorScroll',
-    function($scope, FBURL, $firebase, $location, $anchorScroll) {
+  .controller('CreateCtrl', ['$scope', 'FBURL', '$firebase', '$location', '$anchorScroll', '$localStorage',
+    function($scope, FBURL, $firebase, $location, $anchorScroll, $localStorage) {
       var fireRef = new Firebase(FBURL + 'events');
       var sync = $firebase(fireRef);
+
+      $scope.$storage = $localStorage;
       
       $scope.tagsList = [];
       var fireTagList = [];
@@ -53,7 +55,8 @@ angular.module('nventaApp')
           };
           sync.$push(newEvent).then(function(newChildRef) {
             var idOfEvent = newChildRef.name();
-            $scope.eventId = idOfEvent;            
+            $scope.eventId = idOfEvent;
+            $scope.$storage.eventId = idOfEvent;          
             $location.hash('event-add-ons');
             $anchorScroll();
           });

@@ -11,9 +11,9 @@ angular.module('nventaApp')
   .controller('EventFormInfoCtrl', function ($scope, FBURL, $firebase) {
     var fireRef = new Firebase(FBURL + 'eventInfo');
     var sync = $firebase(fireRef);  
-    $scope.addEventInfo = function(eventId, eventInfo){
-    	console.log(eventId);
-    	console.log(eventInfo);  	
-    	sync.$set(eventId, eventInfo);
+    $scope.addEventInfo = function(eventId, eventInfo){    	
+    	console.log($scope.$storage.eventId);
+
+    	sync.$set($scope.$storage.eventId, eventInfo);
     };
   });

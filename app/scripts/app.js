@@ -39,6 +39,7 @@ var app = angular.module('nventaApp', [
   ]);
 
 app.run(function ($injector, $location, $rootScope, loginRedirectPath) {
+    console.log('state security');
       if ($injector.has('$state')) {
         new RouteSecurityManager($location, $rootScope, $injector.get('$state'), loginRedirectPath);
       }

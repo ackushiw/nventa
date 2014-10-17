@@ -1,2 +1,16 @@
-<h2>Add Tag</h2>
-<input type="text" ng-model="eventTag.tag" class="form-control" placeholder="tag">
+<div ng-controller="EventFormTagsCtrl">
+    <div>
+        <h2>Add Tag</h2>
+        <h2># Tags</h2>
+        <h6>use spacebar to complete tag</h6>
+        <input type="text" ng-model="event.tag" class="form-control" placeholder="add tag" ng-list="," ui-keypress="{'enter 39 32 186 187 188 189 190': 'pushTag($event, event.tag[0])'}">
+        <br>
+        <div ng-repeat="(key, tag) in eventTagsList" inline-block>
+            <div>
+                <button class="btn" type="button" ng-click="removeTag($index)" ng-mouseenter="hover = true" ng-mouseleave="hover = false" ng-class="{'btn-danger': hover}">{{tag.$value}}  <i class="fa fa-close"></i>
+                </button>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>

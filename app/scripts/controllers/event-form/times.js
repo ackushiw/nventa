@@ -19,7 +19,7 @@ angular.module('nventaApp')
         $scope.addEventTimes = function(eventId, timeData) {
             console.log('times id: ' + eventId);
             console.log(angular.toJson(timeData));
-            sync.$set(eventId, angular.fromJson(angular.toJson(timeData)));
+            sync.$set($scope.$storage.eventId, angular.fromJson(angular.toJson(timeData)));
         };
         $scope.today = function() {
             $scope.eventTimes = {

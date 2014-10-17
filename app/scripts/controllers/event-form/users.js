@@ -13,6 +13,6 @@ angular.module('nventaApp')
     var sync = $firebase(fireRef);  
     $scope.addEventInfo = function(eventId, eventUsers){
     	console.log(eventId);    	
-    	sync.$set(eventId, eventUsers);
+    	sync.$set($scope.$storage.eventId, eventUsers);
     };
   });

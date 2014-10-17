@@ -83,6 +83,7 @@ angular.module('nventaApp')
       })
 
       .when('/chat', {
+        authRequired: true,
         templateUrl: 'views/chat.html',
         controller: 'ChatCtrl'
       })

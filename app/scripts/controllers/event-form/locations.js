@@ -8,9 +8,11 @@
  * Controller of the nventaApp
  */
 angular.module('nventaApp')
-  .controller('EventFormLocationsCtrl', function ($scope, FBURL, $firebase) {
+  .controller('EventFormLocationsCtrl', function ($scope, FBURL, $firebase, $localStorage) {
     var fireRef = new Firebase(FBURL + 'eventLocations');
     var sync = $firebase(fireRef);
+
+    $scope.$storage = $localStorage;
     $scope.eventLocals = {
     	input: '',
     	address: '',
@@ -32,6 +34,6 @@ angular.module('nventaApp')
     $scope.addEventLocals = function(eventId, eventLocations){
     	console.log(eventId);
     	console.log(angular.toJson(eventLocations));   	
-    	sync.$set(eventId, eventLocations);
+    	sync.$set($scope.$storage.eventId, eventLocations);
     };
   });
