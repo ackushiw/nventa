@@ -1,39 +1,39 @@
-<div id="event-card" layout="vertical" class="material-whiteframe-z1">
+<div id="event-card" layout="vertical" class="md-whiteframe-z1">
 
     <div class="toolbar" ng-init="callCardCtrl(eventId)">
 
-        <div class="material-toolbar-tools">    
+        <div class="md-toolbar-tools">    
             <div class="actions" layout="horizontal" flex>
 
-                <material-button class="">
+                <md-button class="">
                     <i class="fa fa-retweet"></i>
                     re-nvent
-                </material-button>
-                <material-button class="">
+                </md-button>
+                <md-button class="">
                     <i class="fa fa-share-alt"></i>
                     share
-                </material-button>
+                </md-button>
 
-                <material-button class="">
+                <md-button class="">
                     <i class="fa fa-star-o"></i>
                     star
-                </material-button>
-                <material-button class="">
+                </md-button>
+                <md-button class="">
                     <i class="fa fa-eye-slash"></i>
                     hide
-                </material-button>
+                </md-button>
 
-                <material-button class="" ng-click="removeEvent(key)">
+                <md-button class="" ng-click="removeEvent(key)">
                     <i class="fa fa-close"></i>
                     close
-                </material-button>
+                </md-button>
             </div>
         </div>
     </div>
 
 
-    <div class="material-whiteframe-z2 card-body">
-        <material-content class=" material-content-padding">
+    <div class="md-whiteframe-z2 card-body">
+        <md-content class=" md-content-padding">
             <h2>{{eventCard.title}}</h2>
             <h4>{{eventCard.$id}}</h4>
 
@@ -52,49 +52,57 @@
                 <p>{{eventLocals.formatted_address}}</p>
             </div>
 
-        </material-content>
+        </md-content>
+        <ul class="nav nav-tabs" layout="horizontal" >
+            <li flex><md-button class="btn" flex><i class="fa fa-info-circle"></i> info</md-button></li>
+            <li flex><md-button class="btn" flex><i class="fa fa-clock-o"></i> times</md-button></li>
+            <li flex><md-button class="btn" flex><i class="fa fa-map-marker"></i> locations</md-button></li>
+            <li flex><md-button class="btn" flex><i class="fa fa-users"></i> people</md-button></li>
+            <li flex><md-button class="btn" flex><i class="fa fa-dollar"></i> money</md-button></li>
+            <li flex><md-button class="btn" flex><i class="fa fa-tags"></i> tags</md-button></li>
+        </ul>
 
 
-        <material-tabs class="material-whiteframe-z1">
+        <md-tabs class="md-whiteframe-z1 hidden">
 
-            <material-tab ng-click="infoTab(eventCard.$id)">
+            <md-tab ng-click="infoTab(eventCard.$id)">
 
-                <material-tab-label>
+                <md-tab-label>
                     <i class="fa fa-info-circle"></i>
-                    info      </material-tab-label>
-            </material-tab>
+                    info      </md-tab-label>
+            </md-tab>
 
-            <material-tab>
+            <md-tab>
 
-                <material-tab-label>
+                <md-tab-label>
                     <i class="fa fa-clock-o"></i>
                     times
-                </material-tab-label>
-            </material-tab>
-            <material-tab>
-                <material-tab-label>
+                </md-tab-label>
+            </md-tab>
+            <md-tab>
+                <md-tab-label>
                     <i class="fa fa-map-marker"></i>
                     locations
-                </material-tab-label>
-            </material-tab>
-            <material-tab>
-                <material-tab-label>
+                </md-tab-label>
+            </md-tab>
+            <md-tab>
+                <md-tab-label>
                     <i class="fa fa-users"></i>
                     users
-                </material-tab-label>
-            </material-tab>
-            <material-tab>
-                <material-tab-label>
+                </md-tab-label>
+            </md-tab>
+            <md-tab>
+                <md-tab-label>
                     <i class="fa fa-dollar"></i>
                     money
-                </material-tab-label>
-            </material-tab>
-            <material-tab ng-click="infoTab(eventCard.$id)">
-                <material-tab-label>
+                </md-tab-label>
+            </md-tab>
+            <md-tab ng-click="infoTab(eventCard.$id)">
+                <md-tab-label>
                     <i class="fa fa-tags"></i>
                     #tags
-                </material-tab-label>
-            </material-tab>
-        </material-tabs>
+                </md-tab-label>
+            </md-tab>
+        </md-tabs>
     </div>
 </div>

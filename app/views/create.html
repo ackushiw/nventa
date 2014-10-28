@@ -1,6 +1,6 @@
 <div class="container-fluid" layout-fill>
-    <material-card id="create-event-top" class="col-md-6 col-md-offset-3 white">
-        <material-content class="material-content-padding">
+    <md-card id="create-event-top" class="col-md-6 col-md-offset-3 white">
+        <md-content class="md-content-padding">
 
             <form name="eventCreation" ng-submit="eventCreation.$valid && createEvent(event.title, event.description, event.privacy)">
                 <div layout="horizontal">
@@ -9,14 +9,14 @@
                     <h1>{{$storage.eventId}}</h1>
                     <span flex></span>
 
-                    <material-radio-group layout="horizontal" ng-model="event.privacy" class="pull-right" ng-pristine="test">
+                    <md-radio-group layout="horizontal" ng-model="event.privacy" class="pull-right" ng-pristine="test">
 
-                        <material-radio-button ng-init="event.privacy = null" value="false" ng-class="{'material-checked': event.privacy === null}"><b>Public</b>
-                        </material-radio-button>
+                        <md-radio-button ng-init="event.privacy = null" value="false" ng-class="{'md-checked': event.privacy === null}"><b>Public</b>
+                        </md-radio-button>
 
-                        <material-radio-button value="true"><b>Private</b>
-                        </material-radio-button>
-                    </material-radio-group>
+                        <md-radio-button value="true"><b>Private</b>
+                        </md-radio-button>
+                    </md-radio-group>
                 </div>
 
                 <input type="text" class="form-control" placeholder="Your event's name" ng-model="event.title" required>
@@ -46,33 +46,33 @@
                 <br>           
             </form>
 
-            <material-divider></material-divider>
+            <md-divider></md-divider>
 
-            <material-button class="pull-right material-button-colored" ng-class="{'material-button-raised': event.title}" ng-click="createEvent(event.title, event.description, event.privacy)">Create</material-button>
+            <md-button class="pull-right md-button-colored" ng-class="{'md-button-raised': event.title}" ng-click="createEvent(event.title, event.description, event.privacy)">Create</md-button>
 
             <br>       
-            <material-toolbar id="event-add-ons">
+            <md-toolbar id="event-add-ons">
 
-                <div class="material-toolbar-tools" layout="horizontal" layout-fill>
-                    <material-button ng-click="eventTab = 'default'"><i class="fa fa-info-circle fa-2x"><span hide-sm>Event info</span></i>
-                    </material-button>
+                <div class="md-toolbar-tools" layout="horizontal" layout-fill>
+                    <md-button ng-click="eventTab = 'default'"><i class="fa fa-info-circle fa-2x"><span hide-sm>Event info</span></i>
+                    </md-button>
 
-                    <material-button ng-click="eventTab = 'times'"><i class="fa fa-clock-o fa-2x"><span hide-sm>Event Times</span></i>
-                    </material-button>
+                    <md-button ng-click="eventTab = 'times'"><i class="fa fa-clock-o fa-2x"><span hide-sm>Event Times</span></i>
+                    </md-button>
 
-                    <material-button ng-click="eventTab ='locations'"><i class="fa fa-map-marker fa-2x"><span hide-sm>Event Locations</span></i>
-                    </material-button>
+                    <md-button ng-click="eventTab ='locations'"><i class="fa fa-map-marker fa-2x"><span hide-sm>Event Locations</span></i>
+                    </md-button>
 
-                    <material-button ng-click="eventTab='users'"><i class="fa fa-users fa-2x"><span hide-sm>Event Users</span></i>
-                    </material-button>
+                    <md-button ng-click="eventTab='users'"><i class="fa fa-users fa-2x"><span hide-sm>Event Users</span></i>
+                    </md-button>
 
-                    <material-button ng-click="eventTab='money'"><i class="fa fa-dollar fa-2x"><span hide-sm>Money</span></i>
-                    </material-button>
-                    <material-button ng-click="eventTab = 'tags'"><i class="fa fa-tags fa-2x"><span hide-sm>#tags</span></i>
-                    </material-button>
-                    <material-divider></material-divider>
+                    <md-button ng-click="eventTab='money'"><i class="fa fa-dollar fa-2x"><span hide-sm>Money</span></i>
+                    </md-button>
+                    <md-button ng-click="eventTab = 'tags'"><i class="fa fa-tags fa-2x"><span hide-sm>#tags</span></i>
+                    </md-button>
+                    <md-divider></md-divider>
                 </div>
-            </material-toolbar>
+            </md-toolbar>
             <div class="alert alert-info" role="alert" ng-show="eventId">This is a
                 <span ng-switch="event.privacy">
                     <span ng-switch-when="true">
@@ -81,7 +81,7 @@
                         <strong>public</strong>event anyone</span>
                 </span>can see the details below</div>
             <div layout="vertical" layout-fill>
-                <material-content ng-switch="eventTab">
+                <md-content ng-switch="eventTab">
                     <section ng-switch-when="times">
                         <event-form-times></event-form-times>
                     </section>
@@ -100,10 +100,10 @@
                     <section ng-switch-default>
                         <event-form-info></event-form-info>
                     </section>
-                </material-content>
+                </md-content>
             </div>
 
-        </material-content>
-    </material-card>
+        </md-content>
+    </md-card>
 
 </div>

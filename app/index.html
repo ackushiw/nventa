@@ -11,9 +11,9 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
     <link rel="stylesheet" href="bower_components/angular-bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -34,59 +34,119 @@
 
     <!-- Add your site or application content here -->
 
-    <div layout="vertical" layout-fill ng-controller="GlobalCtrl" class="fixed">
+    <div layout="vertical" layout-md="horizontal" layout-fill ng-controller="GlobalCtrl" class="fixed">
 
-        <material-toolbar scroll-shrink class="material-whiteframe-z1 brand-default top-toolbar">
-            <div class="material-toolbar-tools">
-                <span ng-click="openLeftMenu()" class="nav-brand">Nventa</span>
-                <!-- fill up the space between left and right area -->
-                <div class="input-group" flex="20">
-                    <span class="input-group-addon"><i class="fa fa-search"></i>
-                    </span>
-                    <input type="text" class="form-control" placeholder="Search" ng-model="eventSearch">
-                </div>
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')" flex="33">
+            <md-toolbar class="md-theme-indigo">
+                
+                <div class="md-toolbar-tools">
+                <h1>nVenta</h1>
                 <span flex></span>
+                <md-text-float label="Search" ng-model="eventSearch"></md-text-float>
+                </div>
+            </md-toolbar>
+            <md-content class="md-content-padding">
+                <md-button ng-click="closeLeftMenu()" class="md-button-colored" hide-md>
+                    Close Sidenav Left
+                </md-button>
+                <p hide show-md>
+                    This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
+                </p>
+            </md-content>
 
-                <material-button>
-                    Right Bar Button
-                </material-button>
-            </div>
-        </material-toolbar>
+        </md-sidenav>
         <div style="position: fixed;" class="desktop-nav hidden-sm hidden-xs" layout-fill>
             <div layout="vertical">
-              <div class="nav-brand brand-default-text"><a ng-href="#"><h3>Nventa</h3></a></div>
-              <div class="side-nav">
-                <ul class="nav">
-                  <li><a ng-href="#">home</a></li>
-                  <li><a ng-href="#/create">create</a></li>
-                  <li><a ng-href="#/chat">chat</a></li>
-                  <li><a href="">favorite</a></li>
-                  <li><a href="">history</a></li>
-                  <li><a ng-href="#/login">login</a></li>
-                </ul>
-              </div>
-              <span></span>
-              <div class="nav-bottom">
-                <material-button ng-href="#/create" class="material-button-fab brand-default" ><div style="height: 100%; padding: 12px"><i class="fa fa-plus fa-2x"></i></div></material-button>
-              </div>
+                <div class="nav-brand brand-default-text">
+                    <a ng-href="#">
+                        <h3>Nventa</h3>
+                    </a>
+                </div>
+                <div class="side-nav">
+                    <ul class="nav">
+                        <li>
+                            <a ng-href="#">
+                                <h4><i class="fa fa-home"></i> home</h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-href="#/create">
+                                <h4><i class="fa fa-pencil"></i> create</h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-href="#/chat">
+                                <h4><i class="fa fa-home"></i> chat</h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <h4><i class="fa fa-heart"></i> favorite</h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <h4><i class="fa fa-history"></i> history</h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-href="#/login">
+                                <h4><i class="fa fa-sign-in"></i> login</h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <span></span>
+                <div class="nav-bottom">
+                    <md-button ng-href="#/create" class="md-button-fab brand-default">
+                        <div style="height: 100%; padding: 12px"><i class="fa fa-plus fa-2x"></i>
+                        </div>
+                    </md-button>
+                </div>
             </div>
-            
-
-
         </div>
 
-        <material-content class="app-view">
-            <div layout="horizontal">
-                <material-content flex>
-                    <div ng-view=""></div>
-                </material-content>
-                <material-sidenav ng-show="rightMenu" component-id="right" class="material-sidenav-right">
-                    Right Nav!
-                </material-sidenav>
-            </div>
-        </material-content>
 
+        <section layout="vertical" flex>
+            <md-toolbar scroll-shrink class="md-whiteframe-z1 brand-default top-toolbar">
+                <div class="md-toolbar-tools" layout="horizontal" layout-align="space-between">
+                    <span ng-click="openLeftMenu()" class="nav-brand" hide-md>Nventa</span>
+                    <!-- fill up the space between left and right area -->
+                    <md-text-float label="Search" ng-model="search" hide-md></md-text-float>
+                    <span flex="10"></span>
+
+                    <md-button ng-click="openRightMenu($event)" class="pull-right">
+                        Right Bar Button
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <md-content class="app-view" flex>
+                <div layout="horizontal">
+                    <md-content flex>
+                        <div ng-view=""></div>
+                    </md-content>
+                    <md-sidenav ng-show="rightMenu" component-id="right2" class="md-sidenav-right hidden">
+                        Right Nav!
+                    </md-sidenav>
+                </div>
+            </md-content>
+        </section>
+        <md-sidenav ng-if="rightMenu" class="md-sidenav-right md-whiteframe-z2" component-id="right" is-open="rightMenuOpen">
+
+            <md-toolbar class="md-theme-light">
+                <h1 class="md-toolbar-tools">Sidenav Right</h1>
+            </md-toolbar>
+            <md-content class="md-content-padding">
+                <md-button ng-click="closeRightMenu()" class="md-button-colored">
+                    Close Sidenav Right
+                </md-button>
+            </md-content>
+
+        </md-sidenav>
     </div>
+
+
+
     <nav-bottom layout="horizontal" layout-fill></nav-bottom>
 
 
@@ -142,8 +202,6 @@
     <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
     <script src="bower_components/mockfirebase/dist/mockfirebase.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
-    <script src="bower_components/hammerjs/hammer.js"></script>
-    <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/angular-ui-utils/ui-utils.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
@@ -153,6 +211,9 @@
     <script src="bower_components/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.js"></script>
     <script src="bower_components/angucomplete/angucomplete.js"></script>
     <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/hammerjs/hammer.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
