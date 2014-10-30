@@ -3,15 +3,15 @@
     <map></map>
 </div> -->
 <div ng-controller="MainCtrl">
-    <md-content class="md-content-padding">
+    <md-content class="md-content-padding containter-fluid">
 
-        <div class="containter-fluid" layout-fill inline-block>
+        <md-list class="col-xs-12 col-sm-12 col-md-11 col-lg-10" layout-fill inline-block>
 
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6" ng-repeat="(index, eventCard) in eventsList | filter:eventSearch">
+            <md-item class="md-whiteframe-z1" ng-repeat="(index, eventCard) in eventsList | filter:eventSearch">
                 <event-card eventIndex="{{index}}"></event-card>
-            </div>
+            </md-item>
             
-        </div>
+        </md-list>
         <!-- <div ui-scroll-viewport  style="height:500px;position:absolute;">
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ui-scroll="item in datasource" buffer-size="5" padding="10" is-loading="scroll-loading">
                     <div>{{item}}test</div>

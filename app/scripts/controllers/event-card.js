@@ -38,4 +38,17 @@ angular.module('nventaApp')
             EventFactory.delete(id);
             console.log(id + ' deleted from firebase!');
         };
+
+        $scope.cardDetailToggle = function () {
+            $scope.cardDetailView = ($scope.cardDetailView == false) ? true : false;
+        };
+        $scope.cardSettingsToggle = function (){
+            $scope.cardSettingsView = ($scope.cardSettingsView == false) ? true : false;
+        };
+        $scope.cardSettingsOpen = function (){
+            $scope.cardSettingsView = true;
+        }
+        $scope.cardSettingsClose = function (){
+            $scope.cardSettingsView = false;
+        }
     });

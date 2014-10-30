@@ -9,6 +9,14 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-action.css" rel="stylesheet">
+    <link href="bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-content.css" rel="stylesheet">
+    <link href="bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-editor.css" rel="stylesheet">
+    <link href="bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-navigation.css" rel="stylesheet">
+    <link href="bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-maps.css" rel="stylesheet">
+    <link href="bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-notification.css" rel="stylesheet">
+    <link href="bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-social.css" rel="stylesheet">
+    <link href="bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-toggle.css" rel="stylesheet">
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.css" />
@@ -36,13 +44,12 @@
 
     <div layout="vertical" layout-md="horizontal" layout-fill ng-controller="GlobalCtrl" class="fixed">
 
-        <md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')" flex="33">
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" component-id="left" is-locked-open="$media('md')" flex flex-md="33">
             <md-toolbar class="md-theme-indigo">
-                
+
                 <div class="md-toolbar-tools">
-                <h1>nVenta</h1>
-                <span flex></span>
-                <md-text-float label="Search" ng-model="eventSearch"></md-text-float>
+                    <h1>nVenta</h1>
+                    <span flex></span>
                 </div>
             </md-toolbar>
             <md-content class="md-content-padding">
@@ -66,27 +73,32 @@
                     <ul class="nav">
                         <li>
                             <a ng-href="#">
-                                <h4><i class="fa fa-home"></i> home</h4>
+                                <h3>Nventa</h3>
+                            </a>
+                        </li>
+                        <li>
+                            <a ng-href="#">
+                                <h4><div class="svg-ic_home_24px"></div><i class="fa fa-home"></i> home</h4>
                             </a>
                         </li>
                         <li>
                             <a ng-href="#/create">
-                                <h4><i class="fa fa-pencil"></i> create</h4>
+                                <h4><div class="svg-ic_create_24px"></div><i class="fa fa-pencil"></i> create</h4>
                             </a>
                         </li>
                         <li>
                             <a ng-href="#/chat">
-                                <h4><i class="fa fa-home"></i> chat</h4>
+                                <h4><div class="svg-ic_sms_24px"></div><i class="fa fa-home"></i> chat</h4>
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <h4><i class="fa fa-heart"></i> favorite</h4>
+                                <h4><div class="svg-ic_favorite_24px"></div><i class="fa fa-heart"></i> favorite</h4>
                             </a>
                         </li>
                         <li>
                             <a href="">
-                                <h4><i class="fa fa-history"></i> history</h4>
+                                <h4><div class="svg-ic_history_24px"></div><i class="fa fa-history"></i> history</h4>
                             </a>
                         </li>
                         <li>
@@ -97,23 +109,20 @@
                     </ul>
                 </div>
                 <span></span>
-                <div class="nav-bottom">
-                    <md-button ng-href="#/create" class="md-button-fab brand-default">
-                        <div style="height: 100%; padding: 12px"><i class="fa fa-plus fa-2x"></i>
-                        </div>
-                    </md-button>
-                </div>
+
             </div>
         </div>
 
 
         <section layout="vertical" flex>
             <md-toolbar scroll-shrink class="md-whiteframe-z1 brand-default top-toolbar">
-                <div class="md-toolbar-tools" layout="horizontal" layout-align="space-between">
-                    <span ng-click="openLeftMenu()" class="nav-brand" hide-md>Nventa</span>
+                <div class="md-toolbar-tools" layout="horizontal" layout-align="left center">
+                    <a ng-click="openLeftMenu()" class="nav-brand hidden-md hidden-lg" hide-md><i class="fa fa-navicon"></i> Nventa</a>
                     <!-- fill up the space between left and right area -->
-                    <md-text-float label="Search" ng-model="search" hide-md></md-text-float>
-                    <span flex="10"></span>
+                    <md-button ng-click="toggleExpandView()"><i class="fa" ng-class="{'fa-th-large': detailView, 'fa-list': !detailView}"></i></md-button>
+                    <md-text-float label="Search" ng-model="eventSearch"></md-text-float>
+                    <b>{{detailView}}</b>
+                    <span flex></span>
 
                     <md-button ng-click="openRightMenu($event)" class="pull-right">
                         Right Bar Button
@@ -131,7 +140,7 @@
                 </div>
             </md-content>
         </section>
-        <md-sidenav ng-if="rightMenu" class="md-sidenav-right md-whiteframe-z2" component-id="right" is-open="rightMenuOpen">
+        <md-sidenav hide ng-if="rightMenu" class="md-sidenav-right md-whiteframe-z2" component-id="right" is-open="rightMenuOpen">
 
             <md-toolbar class="md-theme-light">
                 <h1 class="md-toolbar-tools">Sidenav Right</h1>
@@ -143,6 +152,12 @@
             </md-content>
 
         </md-sidenav>
+    </div>
+    <div class="nav-bottom action-button">
+        <md-button ng-href="#/create" class="md-button-fab brand-default md-whiteframe-z1" layout-align="space-around">
+            <div class="svg-ic_add_24px">
+            </div>
+        </md-button>
     </div>
 
 
@@ -249,6 +264,7 @@
     <script src="scripts/directives/map.js"></script>
     <script src="scripts/services/eventfactory.js"></script>
     <script src="scripts/services/datasource.js"></script>
+    <script src="scripts/filters/capitalize.js"></script>
     <!-- endbuild -->
 </body>
 

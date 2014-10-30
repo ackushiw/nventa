@@ -1,41 +1,51 @@
-<div id="event-card" layout="vertical" class="md-whiteframe-z1">
+<div id="event-card" layout="vertical" ng-class="{'md-whiteframe-z1': detailView || cardDetailView, detailed: detailView || cardDetailView}">
 
-    <div class="toolbar" ng-init="callCardCtrl(eventId)">
+    <md-toolbar class="white event-toolbar" ng-click="cardDetailToggle()">
+        <div class="md-toolbar-tools" layout="horizontal">
+            <div class="catagory" ng-class="{'md-whiteframe-z1': hover}">
+                <div class="svg-ic_android_24px"></div>
+            </div>
+            <div ng-hide="detailView" ng-class="{'svg-ic_expand_less_24px': cardDetailView, 'svg-ic_expand_more_24px': !cardDetailView}">
+            </div>
+            <h2 flex="20">{{eventCard.title | capitalize}}</h2>
+            <span ng-show="detailView || cardDetailView" flex></span>
+            <h2>{{eventTimes.startTime | date:'EEE, MMM d, h:mm a' }}</h2>
+            <span ng-if="!detailView" ng-hide="cardDetailView" flex>{{eventCard.description | limitTo : 40}}</span>
+            <div layout="horizontal" ng-mouseenter="cardSettingsOpen()" ng-mouseleave="cardSettingsClose()">
+                <div ng-show="cardSettingsView" class="actions settings" layout="horizontal">
 
-        <div class="md-toolbar-tools">    
-            <div class="actions" layout="horizontal" flex>
+                    <md-button class="icon-button">
+                        <i class="fa fa-retweet"></i>
+                    </md-button>
+                    <md-button class="icon-button">
+                        <i class="fa fa-share-alt"></i>
+                    </md-button>
 
-                <md-button class="">
-                    <i class="fa fa-retweet"></i>
-                    re-nvent
-                </md-button>
-                <md-button class="">
-                    <i class="fa fa-share-alt"></i>
-                    share
-                </md-button>
+                    <md-button class="icon-button">
+                        <i class="fa fa-star-o"></i>
+                    </md-button>
+                    <span flex></span>
+                    <md-button class="icon-button">
+                        <i class="fa fa-eye-slash"></i>
+                    </md-button>
 
-                <md-button class="">
-                    <i class="fa fa-star-o"></i>
-                    star
-                </md-button>
-                <md-button class="">
-                    <i class="fa fa-eye-slash"></i>
-                    hide
-                </md-button>
-
-                <md-button class="" ng-click="removeEvent(key)">
-                    <i class="fa fa-close"></i>
-                    close
+                    <md-button class="icon-button" ng-click="removeEvent(key)">
+                        <i class="fa fa-close"></i>
+                    </md-button>
+                </div>
+                <md-button class="icon-button" ng-click="cardSettingsToggle()" >
+                    <div class="svg-ic_more_vert_24px">
+                    </div>
                 </md-button>
             </div>
         </div>
-    </div>
+
+    </md-toolbar>
+    <md-divider></md-divider>
 
 
-    <div class="md-whiteframe-z2 card-body">
-        <md-content class=" md-content-padding">
-            <h2>{{eventCard.title}}</h2>
-            <h4>{{eventCard.$id}}</h4>
+    <div class="card-body" ng-if="detailView || cardDetailView">
+        <md-content class="md-content-padding">
 
             <p>This is the event-card view. test. swipe left to hide, swipe right to star/save</p>
             <p>{{eventCard.description}}</p>
@@ -53,56 +63,26 @@
             </div>
 
         </md-content>
-        <ul class="nav nav-tabs" layout="horizontal" >
-            <li flex><md-button class="btn" flex><i class="fa fa-info-circle"></i> info</md-button></li>
-            <li flex><md-button class="btn" flex><i class="fa fa-clock-o"></i> times</md-button></li>
-            <li flex><md-button class="btn" flex><i class="fa fa-map-marker"></i> locations</md-button></li>
-            <li flex><md-button class="btn" flex><i class="fa fa-users"></i> people</md-button></li>
-            <li flex><md-button class="btn" flex><i class="fa fa-dollar"></i> money</md-button></li>
-            <li flex><md-button class="btn" flex><i class="fa fa-tags"></i> tags</md-button></li>
+        <ul class="nav nav-tabs" layout="horizontal">
+            <li flex>
+                <md-button class="btn" flex><div class="svg-ic_info_24px"></div><i class="fa fa-info-circle"></i> info</md-button>
+            </li>
+            <li flex>
+                <md-button class="btn" flex><div class="svg-ic_schedule_24px"></div><i class="fa fa-clock-o"></i> times</md-button>
+            </li>
+            <li flex>
+                <md-button class="btn" flex><div class="svg-ic_map_24px"></div><i class="fa fa-map-marker"></i> locations</md-button>
+            </li>
+            <li flex>
+                <md-button class="btn" flex><div class="svg-ic_group_24px"></div><i class="fa fa-users"></i> people</md-button>
+            </li>
+            <li flex>
+                <md-button class="btn" flex><div class="svg-ic_attach_money_24px"></div><i class="fa fa-dollar"></i> money</md-button>
+            </li>
+            <li flex>
+                <md-button class="btn" flex><div class="svg-ic_label_24px"></div><i class="fa fa-tags"></i> tags</md-button>
+            </li>
         </ul>
-
-
-        <md-tabs class="md-whiteframe-z1 hidden">
-
-            <md-tab ng-click="infoTab(eventCard.$id)">
-
-                <md-tab-label>
-                    <i class="fa fa-info-circle"></i>
-                    info      </md-tab-label>
-            </md-tab>
-
-            <md-tab>
-
-                <md-tab-label>
-                    <i class="fa fa-clock-o"></i>
-                    times
-                </md-tab-label>
-            </md-tab>
-            <md-tab>
-                <md-tab-label>
-                    <i class="fa fa-map-marker"></i>
-                    locations
-                </md-tab-label>
-            </md-tab>
-            <md-tab>
-                <md-tab-label>
-                    <i class="fa fa-users"></i>
-                    users
-                </md-tab-label>
-            </md-tab>
-            <md-tab>
-                <md-tab-label>
-                    <i class="fa fa-dollar"></i>
-                    money
-                </md-tab-label>
-            </md-tab>
-            <md-tab ng-click="infoTab(eventCard.$id)">
-                <md-tab-label>
-                    <i class="fa fa-tags"></i>
-                    #tags
-                </md-tab-label>
-            </md-tab>
-        </md-tabs>
     </div>
+    <md-divider ng-if="!$last"></md-divider>
 </div>

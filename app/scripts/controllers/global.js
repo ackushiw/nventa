@@ -23,4 +23,8 @@ angular.module('nventaApp')
     	$mdSidenav('right').close();
     	$scope.rightMenu = false;
     };
+    $scope.detailView = false;
+    $scope.toggleExpandView = function (){
+    	$scope.detailView = ($scope.detailView == false) ? true : false;
+    };
   });

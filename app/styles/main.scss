@@ -1,33 +1,32 @@
-$icon-font-path: "../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+$icon-font-path:"../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import"bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 @import url("http://fonts.googleapis.com/css?family=Roboto+Condensed");
- $Roboto:'Roboto Condensed', sans-serif;
-
+$Roboto:'Roboto Condensed', sans-serif;
 /*Brand Colors*/
+
 $color-default: #A23333;
-$color-secondary:   #8C8CB8;
+$color-secondary: #8C8CB8;
 $neutral: #F5F5F5;
 $tools-color: #C0C0C0;
 $white: #FFF;
-
-.brand-default{
+.brand-default {
   background-color: $color-default;
 }
-.brand-secondary{
+.brand-secondary {
   background-color: $color-secondary;
 }
-.white{
+.white {
   background-color: $white;
 }
-.brand-default-text{
+.brand-default-text {
   color: $color-default;
 }
-#bottom-toolbar{
-  position:fixed;
-  bottom:0;
-  height:60px;
+#bottom-toolbar {
+  position: fixed;
+  bottom: 0;
+  height: 60px;
 }
 .browsehappy {
   margin: 0.2em 0;
@@ -35,51 +34,95 @@ $white: #FFF;
   color: #000;
   padding: 0.2em 0;
 }
-.fixed{
+.fixed {
   position: fixed;
 }
 /*Event Card Styling*/
-#event-card{
-  margin-bottom: 30px;
-  .toolbar{
+
+#event-card {
+  .event-toolbar {
+    cursor: pointer;
+    overflow: hidden;
+    .catagory{
+      padding: 7px;
+      border-radius: 50px;
+      background-color: $color-default;
+      div{
+        opacity: 0.65;
+      }
+    }
+    .settings{
+      //position: absolute;
+      background-color: white;
+      border-left: 5px solid rgba(0,0,0,0.3);
+
+    }
+    span{
+      overflow: hidden;
+      white-space: nowrap;
+      opacity: 0.5;
+    }
+  }
+  .toolbar {
     display: inline-block;
     min-height: 15px;
     padding: 0;
     background: #C0C0C0;
-    .material-toolbar-tools{
+    .material-toolbar-tools {
       height: 30px;
     }
   }
-  .card-body{
+  .card-body {
     background-color: $white;
   }
-
 }
-.top-toolbar{
-   .nav-brand{
+#event-card.detailed {
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+.top-toolbar {
+  .nav-brand {
     width: 75px;
+  }
+  .h2{
+    margin-left:24px;
+    
+  }
+}
+.action-button {
+  position: fixed;
+  bottom: 10%;
+  right: 4%;
+  z-index: 150;
+  padding-top: 16px;
+  div {
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .svg-ic_add_24px {
+    width: 24px;
+    height: 24px;
   }
 }
 /* Space out content a bit */
+
 body {
   padding-bottom: 64px !important;
   background: WhiteSmoke;
   font-family: $Roboto;
 }
-
 /* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
+
+.header, .marketing, .footer {
   padding-left: 15px;
   padding-right: 15px;
 }
-
 /* Custom page header */
+
 .header {
   border-bottom: 1px solid #e5e5e5;
-
   /* Make the masthead heading the same height as the navigation */
+  
   h3 {
     margin-top: 0;
     margin-bottom: 0;
@@ -87,78 +130,174 @@ body {
     padding-bottom: 19px;
   }
 }
-
 /* Custom page footer */
+
 .footer {
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
-
 .container-narrow > hr {
   margin: 30px 0;
 }
-
 /* Main marketing message and sign up button */
+
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
-
   .btn {
     font-size: 21px;
     padding: 14px 24px;
   }
 }
-
 /* Supporting marketing content */
+
 .marketing {
   margin: 40px 0;
-
   p + h4 {
     margin-top: 28px;
   }
 }
+/*Icons SVG*/
 
+.icon-button{
+  border-radius: 50%;
+}
+/*Material Icons*/
+/* action */
+.svg-ic_android_24px,
+.svg-ic_delete_24px,
+.svg-ic_done_24px,
+.svg-ic_done_all_24px,
+.svg-ic_event_24px,
+.svg-ic_explore_24px,
+.svg-ic_favorite_24px,
+.svg-ic_favorite_outline_24px,
+.svg-ic_history_24px,
+.svg-ic_home_24px,
+.svg-ic_info_24px,
+.svg-ic_info_outline_24px,
+.svg-ic_label_24px,
+.svg-ic_label_outline_24px,
+.svg-ic_list_24px,
+.svg-ic_lock_24px,
+.svg-ic_restore_24px,
+.svg-ic_room_24px,
+.svg-ic_schedule_24px,
+.svg-ic_search_24px,
+.svg-ic_settings_24px,
+.svg-ic_settings_overscan_24px,
+.svg-ic_today_24px,
+.svg-ic_view_list_24px,
+/* alert */
+.svg-ic_error_24px,
+.svg-ic_warning_24px,
+/* content */
+.svg-ic_add_24px,
+.svg-ic_clear_24px,
+.svg-ic_create_24px,
+.svg-ic_send_24px,
+/* editor */
+.svg-ic_attach_money_24px,
+.svg-ic_insert_photo_24px,
+/* maps */
+.svg-ic_directions_24px,
+.svg-ic_map_24px,
+.svg-ic_my_location_24px,
+.svg-ic_navigation_24px,
+.svg-ic_pin_drop_24px,
+.svg-ic_place_24px,
+/* navigation */
+.svg-ic_arrow_back_24px,
+.svg-ic_arrow_drop_down_24px,
+.svg-ic_arrow_drop_up_24px,
+.svg-ic_arrow_forward_24px,
+.svg-ic_cancel_24px,
+.svg-ic_check_24px,
+.svg-ic_chevron_left_24px,
+.svg-ic_chevron_right_24px,
+.svg-ic_close_24px,
+.svg-ic_expand_more_24px,
+.svg-ic_expand_less_24px,
+.svg-ic_fullscreen_24px,
+.svg-ic_fullscreen_exit_24px,
+.svg-ic_menu_24px,
+.svg-ic_more_horiz_24px,
+.svg-ic_more_vert_24px,
+.svg-ic_refresh_24px,
+.svg-ic_unfold_less_24px,
+.svg-ic_unfold_more_24px,
+/* notification */
+.svg-ic_event_available_24px,
+.svg-ic_event_busy_24px,
+.svg-ic_event_note_24px,
+.svg-ic_sms_24px,
+.svg-ic_sms_failed_24px,
+/* social */
+.svg-ic_group_24px,
+.svg-ic_group_add_24px,
+.svg-ic_location_city_24px,
+.svg-ic_notifications_24px,
+.svg-ic_notifications_none_24px,
+.svg-ic_notifications_off_24px,
+.svg-ic_notifications_on_24px,
+.svg-ic_notifications__paused_24px,
+.svg-ic_people_24px,
+.svg-ic_people_outline_24px,
+.svg-ic_person_24px,
+.svg-ic_person_add_24px,
+.svg-ic_person_outline_24px,
+.svg-ic_plus_one_24px,
+.svg-ic_poll_24px,
+.svg-ic_public_24px,
+.svg-ic_share_24px,
+.svg-ic_whatshot_24px,
+/* toggle */ 
+.svg-ic_check_box_24px, 
+.svg-ic_check_box_outline_blank_24px,
+.svg-ic_radio_button_off_24px,
+.svg-ic_radio_button_on_24px,
+.svg-ic_star_24px,
+.svg-ic_star_half_24px,
+.svg-ic_star_outline_24px {
+  width: 24px;
+  height: 24px;
+}
 /* Responsive: Portrait tablets and up */
+
 @media screen and (min-width: 768px) {
   body {
     padding-bottom: 0 !important;
   }
-  .top-toolbar{
-    
-  }
-  
-  .desktop-nav{
+  .top-toolbar {} .desktop-nav {
     position: fixed;
     margin-top: -64px;
-    .nav-brand{
+    .nav-brand {
       height: 64px;
       padding: 10px;
     }
-    .nav-bottom{
-      position: absolute;
-      bottom: 30px;
-      left: 75px - 28px;
-    }
   }
-  .app-view{
+  .app-view {
     margin-left: 75px;
   }
- 
-
   /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
+  
+  .header, .marketing, .footer {
     padding-left: 0;
     padding-right: 0;
   }
   /* Space out the masthead */
+  
   .header {
     margin-bottom: 30px;
   }
   /* Remove the bottom border on the jumbotron for visual effect */
+  
   .jumbotron {
     border-bottom: 0;
+  }
+  .action-button {
+    bottom: 4%;
+    right: 4%;
   }
 }

@@ -10,4 +10,5 @@
 angular.module('nventaApp')
   .controller('MainCtrl', function ($scope, EventFactory, $timeout) {    
     $scope.eventsList = EventFactory.all;
+    
   });
