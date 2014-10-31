@@ -1,6 +1,6 @@
 $icon-font-path:"../../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
-@import"bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 @import url("http://fonts.googleapis.com/css?family=Roboto+Condensed");
 $Roboto:'Roboto Condensed', sans-serif;
@@ -158,10 +158,26 @@ body {
     margin-top: 28px;
   }
 }
+/* md-text-float */
+md-input-group{
+  label{
+    overflow: visible;
+    min-width: 40px;
+  }
+}
 /*Icons SVG*/
 
 .icon-button{
   border-radius: 50%;
+}
+.md-icon{
+  opacity: 0.65;
+}
+.md-icon.success{
+  background-color:green;
+}
+.md-icon.danger{
+  background-color:red;
 }
 /*Material Icons*/
 /* action */

@@ -14,6 +14,9 @@ angular.module('nventaApp')
       var sync = $firebase(fireRef);
 
       $scope.$storage = $localStorage;
+      $scope.event = {
+        privacy:true
+      };
       
       $scope.tagsList = [];
       var fireTagList = [];

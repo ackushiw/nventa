@@ -1,23 +1,39 @@
 <div class="container-fluid" layout-fill>
     <md-card id="create-event-top" class="col-md-10 white">
-        <md-content class="md-content-padding">
+        
 
-            <form name="eventCreation" ng-submit="eventCreation.$valid && createEvent(event.title, event.description, event.privacy)">
-                <div layout="horizontal">
+            
+                <md-toolbar>
+                    <div layout="horizontal" layout-fill class="md-toolbar-tools">
 
-                    <h2>Title</h2>
-                    <h1>{{$storage.eventId}}</h1>
-                    <span flex></span>
+                        <h2 flex>Title</h2>
+                        <h1 flex>{{$storage.eventId}}</h1>
+                        <span flex></span>
+                        <md-switch ng-init="event.privacy = true" ng-model="event.privacy" aria-label="Private" flex>
+                            <span layout="horizontal">
 
-                    <md-radio-group layout="horizontal" ng-model="event.privacy" class="pull-right" ng-pristine="test">
+                                <div class="icon-button md-icon" ng-class="{success: event.privacy, danger: !event.privacy}">
+                                    <div class="svg-ic_public_24px"></div>
+                                </div>
+                                <span ng-show="event.privacy">Public</span>
+                                <span ng-hide="event.privacy">Private</span>
+                            </span>
+                        </md-switch>
 
-                        <md-radio-button ng-init="event.privacy = null" value="false" ng-class="{'md-checked': event.privacy === null}"><b>Public</b>
-                        </md-radio-button>
-
-                        <md-radio-button value="true"><b>Private</b>
-                        </md-radio-button>
-                    </md-radio-group>
-                </div>
+                        <md-button class="icon-button" ng-click="cardSettingsToggle()">
+                            <div class="svg-ic_more_vert_24px">
+                            </div>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-divider></md-divider>
+                <md-content class="md-content-padding">
+                <form name="eventCreation" ng-submit="eventCreation.$valid && createEvent(event.title, event.description, event.privacy)">
+                <h2 layout="vertical" layout-lg="horizontal">
+                    <md-text-float label="Title" ng-model="event.title"></md-text-float>
+                    <div flex></div>
+                    <md-text-float label="Category" ng-model="event.category" type="text"></md-text-float>
+                </h2>
 
                 <input type="text" class="form-control" placeholder="Your event's name" ng-model="event.title" required>
 
@@ -29,12 +45,13 @@
                 <input type="text" ng-model="event.tag" class="form-control" placeholder="add tag" ng-list="," ui-keypress="{'enter 39 32 186 187 188 189 190': 'pushTag($event, event.tag[0])'}">
                 <br>
                 <div ng-repeat="(key, tag) in tagsList" inline-block>
-                	<div class="col-xs-1">
-                		<button class="btn" type="button" ng-click="removeTag($index)">{{tag}}<i class="fa fa-close"></i></button>
-                	</div>
+                    <div class="col-xs-1">
+                        <button class="btn" type="button" ng-click="removeTag($index)">{{tag}}<i class="fa fa-close"></i>
+                        </button>
+                    </div>
                 </div>
                 <hr>
-                
+
                 <!-- <ui-select multiple ng-model="tagsList">
                     <ui-select-match placeholder="Select tags...">{{$item}}</ui-select-match>
                     <ui-select-choices repeat="tag in tagsList | filter:$select.search">
